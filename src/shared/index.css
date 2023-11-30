@@ -1,0 +1,9 @@
+.table-col {
+    display: flex;
+}
+
+.table-row {
+    height: 50px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+}

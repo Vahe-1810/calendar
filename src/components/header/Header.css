@@ -1,0 +1,60 @@
+header {
+    height: 48px;
+    padding: 8px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+}
+
+.header-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--left-width);
+    height: 100%;
+}
+
+.header-title {
+    font-weight: 400;
+}
+
+.header-actions {
+    display: flex;
+    width: var(--right-width);
+}
+
+.header-date {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.date-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.date-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#select {
+    width: 80px;
+    height: 40px;
+    border-radius: var(--field-border-radius);
+    margin-right: 50px;
+}
+
+.arrow-left,
+.arrow-right,
+.today {
+    width: 60px;
+    background: none;
+    border: none;
+    height: var(--field-primary-height);
+    border: 1px solid var(--border-color);
+    border-radius: var(--field-border-radius);
+}

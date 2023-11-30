@@ -1,0 +1,16 @@
+main {
+    height: calc(100vh - 65px);
+    width: 100%;
+    display: flex;
+}
+
+.left-side {
+    width: var(--left-width);
+    height: 100%;
+    border-right: 1px solid var(--border-color);
+}
+
+.right-side {
+    width: var(--right-width);
+    height: 100%;
+}

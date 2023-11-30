@@ -1,3 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --field-primary-height: 40px;
+  --border-color: #e0e2e5;
+  --field-border-radius: 4px;
+  --left-width: 15%;
+  --right-width: 85%;
+  --primary-color: #1a73e8
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +24,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.MuiStack-root .css-11a8txn-MuiStack-root {
+  transform: scale(0.8);
+}
+
+.MuiStack-root {
+  width: 100%;
 }
