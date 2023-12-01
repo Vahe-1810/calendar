@@ -1,15 +1,19 @@
+import dayjs from "dayjs";
+import { useAppSelector } from "../../redux";
 import Calendar from "../../shared/Calendar";
 import DateTable from "../../shared/DateTable";
 import "./Main.css";
 
 const Main = () => {
+  const dateType = useAppSelector((state) => state.date.type);
+
   return (
     <main>
       <div className="left-side">
-        <Calendar />
+        <Calendar month={dayjs().month()} from="side" />
       </div>
       <div className="right-side">
-        <DateTable type="day" />
+        <DateTable type={dateType} />
       </div>
     </main>
   );
