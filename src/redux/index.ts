@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import dateSlice from "./slices/dateSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import eventSlice from "./slices/eventSlice";
 
 export const store = configureStore({
   reducer: {
     date: dateSlice,
+    event: eventSlice,
   },
 });
 

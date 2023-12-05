@@ -3,7 +3,7 @@ import { DateType, IDateSlice } from "../../types/interfaces";
 import dayjs from "dayjs";
 
 const initialState: IDateSlice = {
-  type: "year",
+  type: "month",
   currentDate: dayjs().toString(),
 };
 

@@ -8,6 +8,19 @@ export interface IDateSlice {
 }
 
 export interface ICalendar {
-  month: dayjs.ConfigType;
+  month: number;
   from: "side" | "yearTable";
+}
+
+export interface IEventSlice {
+  events: Event[];
+  open: boolean;
+  currentEventDate: string | null;
+  currentId: string | null;
+}
+
+export interface Event {
+  id: string;
+  title: string;
+  date: string;
 }

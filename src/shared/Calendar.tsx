@@ -10,8 +10,10 @@ import { setCurrentDate } from "../redux/slices/dateSlice";
 export default function Calendar({ month, from }: ICalendar) {
   const dispatch = useAppDispatch();
   const currentDate = useAppSelector((s) => s.date.currentDate);
-  const isToday = month === dayjs().month() && from === "yearTable";
+  const isToday = month === dayjs(currentDate).month() && from === "yearTable";
   const isFromSide = from === "side";
+
+  console.log(currentDate);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -19,19 +21,16 @@ export default function Calendar({ month, from }: ICalendar) {
         <DemoItem>
           {isFromSide ? (
             <DateCalendar
+              showDaysOutsideCurrentMonth
               value={dayjs(currentDate)}
               onChange={(e) => dispatch(setCurrentDate(e?.toString()!))}
             />
           ) : (
             <DateCalendar
-              minDate={dayjs().month(month as number)}
-              maxDate={dayjs()
-                .month(month as number)
-                .endOf("month")}
-              focusedView={"day"}
-              value={isToday ? dayjs().month(month as number) : null}
+              minDate={dayjs(currentDate).month(month).startOf("month")}
+              maxDate={dayjs(currentDate).month(month).endOf("month")}
+              value={dayjs(currentDate).month(month)}
               onChange={(e) => dispatch(setCurrentDate(e?.toString()!))}
-              views={["day", "month"]}
             />
           )}
         </DemoItem>

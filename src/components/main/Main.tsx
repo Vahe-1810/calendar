@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { useAppSelector } from "../../redux";
 import Calendar from "../../shared/Calendar";
-import DateTable from "../../shared/DateTable";
+import DateTable from "../date-components/DateTable";
 import "./Main.css";
 
 const Main = () => {
