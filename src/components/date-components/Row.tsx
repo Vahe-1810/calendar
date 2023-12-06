@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { DATE_FORMAT } from "../../constants";
 import { useAppDispatch } from "../../redux";
-import { editEvent, editTime } from "../../redux/slices/eventSlice";
+import { editTime } from "../../redux/slices/eventSlice";
 import { Event } from "../../types/interfaces";
 import UserEvent from "../events/Event";
 import { useDrop } from "react-dnd";
@@ -24,30 +24,34 @@ export function Row({
   minute,
 }: IRow) {
   const dispatch = useAppDispatch();
-  const [{ isDragged }, drop] = useDrop(() => ({
-    accept: "event",
-    drop: (item: Event) => {
-      dispatch(
-        editTime({
-          date:
-            dayjs(item.date.split("_")[0])
-              .hour(+h.split(" ")[0])
-              .format(DATE_FORMAT + "_" + "HH") + " AM",
-          id: item.id,
-        })
-      );
-    },
-    collect: (mtr) => ({
-      isDragged: !!mtr.isOver(),
+  const [{ isDragged }, drop] = useDrop(
+    () => ({
+      accept: "event",
+      drop: (item: Event) => {
+        dispatch(
+          editTime({
+            date:
+              dayjs(item.date.split("_")[0])
+                .hour(+h.split(" ")[0])
+                .format(DATE_FORMAT + "_" + "HH") + " AM",
+            id: item.id,
+          })
+        );
+      },
+      collect: (mtr) => ({
+        isDragged: !!mtr.isOver(),
+      }),
+      canDrop: () => !currEvt,
     }),
-  }));
+    [currEvt]
+  );
 
   return (
     <div
       ref={drop}
       className="table-col day-col"
       onClick={() => openEventField(h)}
-      style={{ background: isDragged ? "yellow" : "" }}>
+      style={{ background: isDragged ? "rgba(0, 0, 0, 0.1)" : "" }}>
       <div className="hour">{h}</div>
       <hr />
       {(currEvt?.title && (

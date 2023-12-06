@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   user-select: none;
+  scroll-behavior: auto !important;
 }
 
 *::-webkit-scrollbar {
@@ -41,6 +42,28 @@ code {
 
 .MuiStack-root .css-11a8txn-MuiStack-root {
   transform: scale(0.8);
+}
+
+.MuiStack-root {
+  padding: 0 !important;
+}
+
+@media screen and (max-width: 1890px) {
+  .MuiStack-root .css-11a8txn-MuiStack-root {
+    transform: scale(0.7);
+  }
+}
+
+@media screen and (max-width: 1770px) {
+  .MuiStack-root .css-11a8txn-MuiStack-root {
+    transform: scale(0.6);
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .MuiStack-root .css-11a8txn-MuiStack-root {
+    transform: scale(0.5);
+  }
 }
 
 button {
