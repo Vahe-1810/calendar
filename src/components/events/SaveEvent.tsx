@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux";
 import {
   addNewEvent,
@@ -15,9 +15,7 @@ const SaveEvent = () => {
   const events = useAppSelector((s) => s.event.events);
   const id = useAppSelector((s) => s.event.currentId);
   const hasEvent = events.find((e) => e.id === id);
-  const [event, setEvent] = useState(
-    typeof hasEvent === "object" ? hasEvent.title : hasEvent
-  );
+  const [event, setEvent] = useState(hasEvent ? hasEvent.title : "");
 
   const saveEvent = () => {
     if (id && typeof hasEvent === "object") {

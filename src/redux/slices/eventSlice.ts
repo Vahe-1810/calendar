@@ -18,7 +18,7 @@ const eventSlice = createSlice({
 
     editEvent(state, { payload }: PayloadAction<Event>) {
       state.events = state.events.map((ev) =>
-        ev.id === payload.id ? { ...ev, ...payload } : ev
+        ev.id === payload.id ? payload : ev
       );
     },
 
@@ -38,9 +38,9 @@ const eventSlice = createSlice({
       state.currentId = payload;
     },
 
-    editTime(state, { payload }: PayloadAction<Event>) {
+    editTime(state, { payload }: PayloadAction<Partial<Event>>) {
       state.events = state.events.map((e) =>
-        e.id === payload.id ? payload : e
+        e.id === payload.id ? { ...e, ...payload } : e
       );
     },
   },

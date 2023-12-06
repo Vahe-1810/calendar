@@ -38,13 +38,17 @@ const Header = () => {
       <div className="header-actions">
         <div className="header-date">
           <div className="date-actions">
-            <button className="today">Today</button>
-            <button className="arrow-left" onClick={() => handleSwitch(-1)}>
-              ⇐
-            </button>
-            <button className="arrow-right" onClick={() => handleSwitch(1)}>
-              ⇒
-            </button>
+            {selectedValue !== "year" && (
+              <>
+                <button className="today">Today</button>
+                <button className="arrow-left" onClick={() => handleSwitch(-1)}>
+                  ⇐
+                </button>
+                <button className="arrow-right" onClick={() => handleSwitch(1)}>
+                  ⇒
+                </button>
+              </>
+            )}
             <h2 className="header-title">{dayjs(currentDate).format("LL")}</h2>
           </div>
           <div className="date-select">

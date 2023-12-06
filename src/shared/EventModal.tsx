@@ -14,7 +14,7 @@ const EventModal = () => {
   };
 
   return (
-    <Modal open={open} onClose={handleClose} sx={{ boxShadow: 24 }} keepMounted>
+    <Modal open={open} onClose={handleClose}>
       <div className="modal">
         <SaveEvent />
       </div>

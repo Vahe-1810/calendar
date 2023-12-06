@@ -27,11 +27,6 @@ export function Row({
   const [{ isDragged }, drop] = useDrop(() => ({
     accept: "event",
     drop: (item: Event) => {
-      console.log(
-        dayjs(item.date.split("_")[0])
-          .hour(+h.split(" ")[0])
-          .format(DATE_FORMAT + "_" + "HH") + " AM"
-      );
       dispatch(
         editTime({
           date:
@@ -39,7 +34,6 @@ export function Row({
               .hour(+h.split(" ")[0])
               .format(DATE_FORMAT + "_" + "HH") + " AM",
           id: item.id,
-          title: item.title,
         })
       );
     },
